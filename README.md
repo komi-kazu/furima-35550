@@ -26,9 +26,9 @@
 |name                |string              |null: false                   |
 |explain             |text                |null: false                   |
 |category_id         |integer             |null: false                   |
-|condition           |text                |null: false                   |
+|condition_id        |integer             |null: false                   |
 |delivery_fee        |integer             |null: false                   |
-|prefectures_id      |integer             |null: false                   |
+|prefecture_id       |integer             |null: false                   |
 |sending_days        |integer             |null: false                   |
 |selling_price       |integer             |null: false                   |
 |user                |references          |null: false, foreign_key: true|
@@ -58,10 +58,10 @@
 |Column--------------|Type----------------|Options-----------------------|
 |--------------------|--------------------|------------------------------|
 |postal              |string              |null: false                   |
-|prefectures_id      |integer             |null: false                   |
+|prefecture_id       |integer             |null: false                   |
 |municipality        |string              |null: false                   |
 |address             |string              |null: false                   |
-|building_name       |string              |null: false                   |
+|building_name       |string              |                              |
 |phone_number        |string              |null: false                   |
 |store               |references          |null: false, foreign_key: true|
 
