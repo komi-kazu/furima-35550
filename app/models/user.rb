@@ -9,7 +9,7 @@ class User < ApplicationRecord
   
   validates :nickname, presence: true
 
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角漢字カタカナを使用してください' } do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角漢字ひらがなカタカナを使用してください' } do
     validates :last_name
     validates :first_name
   end
