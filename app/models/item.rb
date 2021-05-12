@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, presence: true
   validates :prefecture_id, presence: true
   validates :sending_days_id, presence: true
+  validates :selling_price, presence: true
   validates :image, presence: true
   
   validates :category_id, numericality: { other_than: 1 } 
@@ -24,11 +25,6 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, numericality: { other_than: 1 } 
   validates :prefecture_id, numericality: { other_than: 1 } 
   validates :sending_days_id, numericality: { other_than: 1 } 
-
-
-  with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' } do
-    validates :selling_price
-   end
 
   validates :selling_price, inclusion: { in: 300..9999999 }
 end
