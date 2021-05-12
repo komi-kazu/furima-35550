@@ -13,13 +13,16 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :explain
-    validates :category_id, numericality: { other_than: 1 } 
-    validates :condition_id, numericality: { other_than: 1 } 
-    validates :delivery_fee_id, numericality: { other_than: 1 } 
-    validates :prefecture_id, numericality: { other_than: 1 } 
-    validates :sending_days_id, numericality: { other_than: 1 } 
     validates :selling_price, inclusion: { in: 300..9999999 }
     validates :image
+  end
+
+  with_options presence: true, numericality: { other_than: 1 } do
+    validates :category_id
+    validates :condition_id
+    validates :delivery_fee_id
+    validates :prefecture_id
+    validates :sending_days_id
   end
   
 end

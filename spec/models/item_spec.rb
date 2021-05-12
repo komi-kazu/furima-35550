@@ -35,7 +35,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
     it 'カテゴリーが未選択(--)では登録できない' do
-      @item.category_id = '1'
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Category must be other than 1")
     end
@@ -45,7 +45,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Condition can't be blank")
     end
     it '商品の状態が未選択(--)では登録できない' do
-      @item.condition_id = '1'
+      @item.condition_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Condition must be other than 1")
     end
@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
     end
     it '配送料の負担が未選択(--)では登録できない' do
-      @item.delivery_fee_id = '1'
+      @item.delivery_fee_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
     end
@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Prefecture can't be blank")
     end
     it '発送元地域が未選択(--)では登録できない' do
-      @item.prefecture_id = '1'
+      @item.prefecture_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
     end
@@ -75,7 +75,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Sending days can't be blank")
     end
     it '発送までの日数が未選択(--)では登録できない' do
-      @item.sending_days_id = '1'
+      @item.sending_days_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Sending days must be other than 1")
     end
