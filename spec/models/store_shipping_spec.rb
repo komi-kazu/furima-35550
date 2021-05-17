@@ -62,6 +62,11 @@ RSpec.describe StoreShipping, type: :model do
         @store_shipping.valid?
         expect(@store_shipping.errors.full_messages).to include("Phone number is not a number")
       end
+      it 'phone_numberが半角英数混合だと保存できないこと' do
+        @store_shipping.phone_number = '080abcde123'
+        @store_shipping.valid?
+        expect(@store_shipping.errors.full_messages).to include("Phone number is not a number")
+      end
       it 'phone_numberが11文字以下ではないと保存できないこと' do
         @store_shipping.phone_number = '1234567891011'
         @store_shipping.valid?
