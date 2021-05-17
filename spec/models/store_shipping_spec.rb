@@ -15,6 +15,10 @@ RSpec.describe StoreShipping, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@store_shipping).to be_valid
       end
+      it 'building_nameは空でも保存できること' do
+        @store_shipping.building_name = ''
+        expect(@store_shipping).to be_valid
+      end
     end
 
     context '内容に問題がある場合' do
@@ -48,6 +52,11 @@ RSpec.describe StoreShipping, type: :model do
         @store_shipping.valid?
         expect(@store_shipping.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it 'prefecture_idが1だと保存できないこと' do
+        @store_shipping.prefecture_id = 1
+        @store_shipping.valid?
+        expect(@store_shipping.errors.full_messages).to include("Prefecture can't be blank")
+      end
       it 'phone_numberが半角数字ではないと保存できないこと' do
         @store_shipping.phone_number = '０８０１２３４５６７８'
         @store_shipping.valid?
@@ -57,10 +66,6 @@ RSpec.describe StoreShipping, type: :model do
         @store_shipping.phone_number = '1234567891011'
         @store_shipping.valid?
         expect(@store_shipping.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
-      end
-      it 'building_nameは空でも保存できること' do
-        @store_shipping.building_name = ''
-        expect(@store_shipping).to be_valid
       end
       it 'userが紐付いていないと保存できないこと' do
         @store_shipping.user_id = nil
