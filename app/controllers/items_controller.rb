@@ -57,7 +57,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_top_page
-    @item = Item.find(params[:item_id])
     if @item.store.present?
       redirect_to root_path
     end
