@@ -1,6 +1,6 @@
 class StoreShipping
   include ActiveModel::Model
-  attr_accessor :user_id,:item_id,:postal,:prefecture_id,:municipality,:address,:building_name,:phone_number,:store_id
+  attr_accessor :user_id,:item_id,:postal,:prefecture_id,:municipality,:address,:building_name,:phone_number,:token
 
   with_options presence: true do
     validates :user_id
@@ -9,7 +9,7 @@ class StoreShipping
     validates :municipality
     validates :address
     validates :phone_number, numericality: {only_integer: true}, length: { in: 1..11 }
-    validates :store_id
+    validates :token
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
 

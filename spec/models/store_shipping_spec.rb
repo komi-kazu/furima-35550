@@ -72,6 +72,11 @@ RSpec.describe StoreShipping, type: :model do
         @store_shipping.valid?
         expect(@store_shipping.errors.full_messages).to include("Item can't be blank")
       end
+      it "tokenが空では登録できないこと" do
+        @store_shipping.token = nil
+        @store_shipping.valid?
+        expect(@store_shipping.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
